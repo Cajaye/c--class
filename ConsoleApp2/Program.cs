@@ -135,35 +135,94 @@ internal static class Program
         Console.WriteLine("Enter a letter in the alphabet: ");
         char letter = Convert.ToChar(Console.ReadLine());
 
-        bool isVowel = false;
-
         switch (char.ToUpper(letter))
         {
             case 'A':
-                isVowel = true;
-                break;
             case 'E':
-                isVowel = true;
-                break;
             case 'I':
-                isVowel = true;
-                break;
             case 'O':
-                isVowel = true;
-                break;
             case 'U':
-                isVowel = true;
+                Console.WriteLine("The letter {0} is a vowel", letter);
+                break;
+            default:
+                Console.WriteLine("The letter {0} is not a vowel", letter);
                 break;
         }
+    }
 
-        if (isVowel == false)
+    public static void Question7()
+    {
+        Console.WriteLine("Enter students grade: ");
+        int grade = Convert.ToInt32(Console.ReadLine());
+
+        if (grade > 0 && grade <= 100)
         {
-            Console.WriteLine("{0} is not a vowel",letter);
+            if (grade >= 50)
+                Console.WriteLine("Student passed");
+            else
+                Console.WriteLine("Student failed");
         }
         else
         {
-            Console.WriteLine("{0} is a vowel",letter);
+            Console.WriteLine("Invalid grade entered");
+        }
+    }
+
+    public static void Question8()
+    {
+        Console.WriteLine("Enter employee's name: ");
+        string name = Console.ReadLine();
+
+        Console.WriteLine("Enter hours employee worked: ");
+        int hours = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Enter employee's code P for part-time F for full-time or C for contract : ");
+        char code = Convert.ToChar(Console.ReadLine());
+
+        double pay = 0;
+
+        switch (char.ToUpper(code))
+        {
+            case'P':
+                pay = hours * 2000;
+                break;
+            case'F':
+                pay = hours * 3000;
+                break;
+            case 'C' when(hours > 12):
+                pay = hours * 4000;
+                break;
+            case 'C':
+                pay = hours * 250;
+                break;
+            default:
+                Console.WriteLine("Invalid code");
+                break;
         }
 
+        Console.WriteLine("{0} worked {1} hours and their pay is {2} ", name, hours, pay);
+    }
+
+    public static void Question9()
+    {
+        int answer = 17;
+        Console.WriteLine("Guess a number from 1-20");
+        int guess = Convert.ToInt32(Console.ReadLine());
+
+        if (guess <= 0 || guess > 20)
+        {
+            Console.WriteLine("Game Over!");
+        }
+        else if(guess > answer)
+        {
+            Console.WriteLine("Too high!");
+        } else if (guess < answer)
+        {
+            Console.WriteLine("Too low!");
+        }
+        else
+        {
+            Console.WriteLine("Congratulations! You guessed the number");
+        }
     }
 }
